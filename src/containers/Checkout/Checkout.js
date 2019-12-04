@@ -21,7 +21,7 @@ class Checkout extends Component {
         if(this.props.ings) {
             const purchaseRedirect = this.props.purchased ? <Redirect to = "/"/> : null;
             summary = (
-                <React.Fragment>
+                <div>
                     {purchaseRedirect}
                     <CheckoutSummary
                         ingredients={this.props.ings}
@@ -32,7 +32,7 @@ class Checkout extends Component {
                         path={this.props.match.path + '/contact-data'} 
                         component={ContactData} 
                     />
-                </React.Fragment>
+                </div>
             )
         }
         return summary;
@@ -41,7 +41,7 @@ class Checkout extends Component {
 
 const mapStateToProps = state => {
     return {
-        ings: state.BurgerBuilder.ingredients,
+        ings: state.burgerBuilder.ingredients,
         purchased: state.order.purchased
     }
 };
